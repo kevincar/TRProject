@@ -4,7 +4,7 @@
   "description": "Temple Recommend Project",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "tsc -p ./tests && cd ./scripts && tsc && node ./dist/test.js"
   },
   "repository": {
     "type": "git",
