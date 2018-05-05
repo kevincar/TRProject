@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/kevincar/TRProject/issues"
   },
-  "homepage": "https://github.com/kevincar/TRProject#readme"
+  "homepage": "https://github.com/kevincar/TRProject#readme",
+  "devDependencies": {
+    "@types/node": "^10.0.4"
+  },
+  "dependencies": {
+    "gast": "0.0.1",
+    "googleapis": "^29.0.0",
+    "googleauth": "^3.0.2",
+    "gsheetsts": "^0.3.32"
+  }
 }
