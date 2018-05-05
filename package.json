@@ -17,12 +17,16 @@
   },
   "homepage": "https://github.com/kevincar/TRProject#readme",
   "devDependencies": {
-    "@types/node": "^10.0.4"
+    "@types/node": "^10.0.4",
+    "readline-sync": "^1.4.9"
   },
   "dependencies": {
+    "@types/readline-sync": "^1.4.3",
     "gast": "0.0.1",
+    "google-auth-library": "^1.4.0",
     "googleapis": "^29.0.0",
     "googleauth": "^3.0.2",
-    "gsheetsts": "^0.3.32"
+    "gsheetsts": "^0.3.32",
+    "tsgast": "^1.0.71"
   }
 }
