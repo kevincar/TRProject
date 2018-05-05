@@ -27,6 +27,7 @@
     "googleapis": "^29.0.0",
     "googleauth": "^3.0.2",
     "gsheetsts": "^0.3.32",
+    "node": "^10.0.0",
     "tsgast": "^1.0.71"
   }
 }
