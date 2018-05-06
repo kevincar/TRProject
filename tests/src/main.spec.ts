@@ -14,6 +14,9 @@ function runGasTests(): any {
 	 * INSERT TEST FUNCTIONS HERE.
 	 */
 	// ex. testTest(tap);
+	LDSApiTest(tap);
+	TRRecordTest(tap);
+	SheetRecordDictionaryTest(tap);
 
 	let tp: tapResults = tap.finish();
 

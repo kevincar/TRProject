@@ -18,17 +18,18 @@ class SheetRecordDictionary extends SheetObjectDictionary<TRRecord> {
 
 		// Get Values for all columns expect those columns that are formula dependant
 		let records: TRRecord[] = [];
-		this.sheet.values.forEach((rowData: any[], rowIndex: number): void => {
+		this.sheet.formulas.forEach((rowData: any[], rowIndex: number): void => {
+			if(rowIndex == 0) return;
 			if(this.sheet == null) throw `sheet is null and should not be!`;
 			let headers: string[] = this.sheet.headers;
 
 			let data: SheetObjectInterface = {};
 			headers.forEach((header: string, headerIndex: number): void => {
 				data[header] = rowData[headerIndex];
-				if(header = "Expiring In (mo)") {
-					if(this.sheet == null) throw `SheetRecordDictionary::translate - sheet is null`;
-					data[header] = this.sheet.formulas[rowIndex][headerIndex];
-				}
+				//if(header == "Expiring In (mo)") {
+					//if(this.sheet == null) throw `SheetRecordDictionary::translate - sheet is null`;
+					//data[header] = this.sheet.formulas[rowIndex][headerIndex];
+				//}
 			});
 
 			if(this.ctor == null) throw `SheetRecord Dictionary::translate - constructor is null!`;
