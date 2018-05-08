@@ -35,7 +35,7 @@ namespace RecordManager {
 		records.forEach((record: TRRecord, recordIndex: number): void => {
 
 			LDSMemberData.forEach((ldsMember: LDSMember, ldsMemberIndex: number): void => {
-				if(ldsMember.name != member.name) return;
+				if(ldsMember.name != record.name) return;
 				//member.loadLDSData(ldsMember);
 			});
 		});
