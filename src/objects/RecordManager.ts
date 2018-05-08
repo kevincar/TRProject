@@ -1,46 +1,47 @@
 /*
- * Filename: MemberManager
+ * Filename: RecordManager
  * Author: Kevin Davis
  *
  * Description
- * Manage the member object
+ * functions to manage records
  */
 
-namespace MemberManager {
-	//let members: Member[] | null = null;
-	//let spreadsheet: Spreadsheet = new Spreadsheet();
-	//let memberListSheet: Sheet = new Sheet(spreadsheet, "Main");
-	//let memberListSheetDict = new SheetObjectDictionary(Member, memberListSheet);
+/// <reference path="./SheetRecordDictionary" />
 
-	//export function getMembers(): Member[] {
-		//if(members) return members;
+namespace RecordManager {
+	let records: TRRecord[] | null = null;
+	let spreadsheet: Spreadsheet = new Spreadsheet();
+	let recordListSheet: Sheet = new Sheet(spreadsheet, "Main");
+	let recordListSheetDict: SheetRecordDictionary = new SheetRecordDictionary(recordListSheet);
 
-		//members = [];
-		////members = memberListSheetDict.translate();
+	export function getRecords(): TRRecord[] {
+		if(records) return records;
 
-		////return members;
-		//return [];
-	//}
+		records = [];
+		records = recordListSheetDict.translate();
 
-	//export function updateMembers(LDSMemberData: LDSMember[]): void {
+		return records;
+	}
 
-		//if(!LDSMemberData) return;
+	export function updateRecords(LDSMemberData: LDSMember[]): void {
 
-		//// 0. ensure we have members
-		//if(!members)
-			//members = getMembers();
+		if(LDSMemberData.length == 0) return;
 
-		//// 1. Update current members
-		//members.forEach((member: Member, memberIndex: number) => {
+		// 0. ensure we have members
+		if(records == null)
+			records = getRecords();
 
-			//LDSMemberData.forEach((ldsMember: LDSMember, ldsMemberIndex: number) => {
-				//if(ldsMember.name != member.name) return;
+		// 1. Update current members
+		records.forEach((record: TRRecord, recordIndex: number): void => {
+
+			LDSMemberData.forEach((ldsMember: LDSMember, ldsMemberIndex: number): void => {
+				if(ldsMember.name != member.name) return;
 				//member.loadLDSData(ldsMember);
-			//});
-		//});
+			});
+		});
 
 		//// 2. Add new unrecognized members
-		//LDSMemberData.forEach((ldsMember: LDSMember, i) => {
+		//LDMemberData.forEach((ldsMember: LDSMember, i) => {
 			//if(!members) throw "Members were not loaded appropriately";
 			//// Use the current ldsMember to look up the corresponding member in our records
 			//let member: Member | undefined = members.reduce((result: Member | undefined, curMember: Member, i, a) => {
@@ -71,7 +72,7 @@ namespace MemberManager {
 				//members.splice(memberIndex, 1);
 			//}
 		//});
-	//}
+	}
 
 	//export function setMembers(M: Member[]) {
 		//members = M;
