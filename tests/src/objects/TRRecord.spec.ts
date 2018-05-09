@@ -41,6 +41,6 @@ function TRRecordTest(tap: GasTap): void {
 		t.notEqual(observed, null, "date should not be null");
 		if(observed == null) return;
 
-		t.equal(observed, expected, "dates should match");
+		t.equal(observed.getTime(), expected.getTime(), "dates should match");
 	});
 }
