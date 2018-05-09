@@ -9,9 +9,9 @@
 function updateMemberList(): void {
 
 	// 1. Get LDS data
-	let LDSMemberData: LDSMember[] = LDSApi.getMemberData();
+	let LDSRecordData: LDSTRRecord[] = LDSApi.getRecordData();
 
-	if(LDSMemberData.length < 1) {
+	if(LDSRecordData.length < 1) {
 		SpreadsheetApp.getUi().alert("ObSSOCookie out of date");
 		return;
 	}

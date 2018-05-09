@@ -71,14 +71,18 @@ class TRRecord extends SheetObject {
 	loadSheetData(data: SheetObjectInterface): void {
 	}
 
-	loadLDSData(data: LDSMember): void {
-		//this.fullName = data.spokenName;
+	loadLDSData(data: LDSTRRecord): void {
 		//this.name = data.name;
+		//this.gender = data.genderLabelShort;
 		//this.age = data.age;
-		//this.birthDate = data.birthDate;
-		//if(!this.prefferedName || this.prefferedName == this.fullName)
-		//this.prefferedName = data.spokenName;
-		//this.phoneNumber = data.phone;
+		//this.recommendType = data.type;
+		//this.status = data.status;
+	}
+
+	static convertLDSDate(ldsDate: string | null): Date | null {
+		if(ldsDate == null) return ldsDate;
+
+		return new Date();
 	}
 }
 

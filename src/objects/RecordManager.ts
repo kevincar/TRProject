@@ -23,9 +23,9 @@ namespace RecordManager {
 		return records;
 	}
 
-	export function updateRecords(LDSMemberData: LDSMember[]): void {
+	export function updateRecords(LDSRecordData: LDSTRRecord[]): void {
 
-		if(LDSMemberData.length == 0) return;
+		if(LDSRecordData.length == 0) return;
 
 		// 0. ensure we have members
 		if(records == null)
@@ -34,9 +34,9 @@ namespace RecordManager {
 		// 1. Update current members
 		records.forEach((record: TRRecord, recordIndex: number): void => {
 
-			LDSMemberData.forEach((ldsMember: LDSMember, ldsMemberIndex: number): void => {
-				if(ldsMember.name != record.name) return;
-				//member.loadLDSData(ldsMember);
+			LDSRecordData.forEach((ldsRecord: LDSTRRecord, ldsRecordIndex: number): void => {
+				if(ldsRecord.name != record.name) return;
+				record.loadLDSData(ldsRecord);
 			});
 		});
 
