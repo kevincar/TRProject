@@ -82,7 +82,11 @@ class TRRecord extends SheetObject {
 	static convertLDSDate(ldsDate: string | null): Date | null {
 		if(ldsDate == null) return ldsDate;
 
-		return new Date();
+		if(typeof(ldsDate) != "string") return null;
+
+		let dateString: string = ldsDate.replace(/^([0-9]{4})([0-9]{2})([0-9]{2})$/gi, "$2/$3/$1");
+
+		return new Date(dateString);
 	}
 }
 
