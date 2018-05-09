@@ -72,8 +72,8 @@ class TRRecord extends SheetObject {
 	}
 
 	loadLDSData(data: LDSTRRecord): void {
-		//this.name = data.name;
-		//this.gender = data.genderLabelShort;
+		this.name = data.name;
+		this.gender = data.genderLabelShort;
 		//this.age = data.age;
 		//this.recommendType = data.type;
 		//this.status = data.status;
