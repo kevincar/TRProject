@@ -7,8 +7,8 @@
  */
 
 namespace LDSApi {
-	const membersURL = "https://www.lds.org/mls/mbr/services/report/member-list?lang=eng&unitNumber=374539";
-	export function getMemberData(): LDSMember[] {
+	const recordsURL = "https://www.lds.org/mls/mbr/services/recommend/recommend-status-new?lang=eng&unitNumber=374539";
+	export function getRecordData(): LDSTRRecord[] {
 
 		let SMSettings: ISetting = SettingsManager.getSettings();
 		let ObSSOCookie: string = SMSettings.ObSSOCookie;
@@ -26,18 +26,18 @@ namespace LDSApi {
 			"headers": headers
 		};
 
-		let responseContent = UrlFetchApp.fetch(membersURL, options).getContentText();
+		let responseContent = UrlFetchApp.fetch(recordsURL, options).getContentText();
 
-		let memberObject: LDSMember[];
+		let recordsObject: LDSTRRecord[];
 		try {
-			memberObject = JSON.parse(responseContent);
+			recordsObject = JSON.parse(responseContent);
 		}
 		catch(e) {
 			Logger.log("ObSSOCookie out of date");
 			return new Array();
 		}
 
-		return memberObject;
+		return recordsObject;
 	}
 }
 
