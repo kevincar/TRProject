@@ -32,4 +32,15 @@ function TRRecordTest(tap: GasTap): void {
 		t.equal(testRecord.monthsRemaining, testData["Expiring In (mo)"], "remainingMonths should be a formula");
 		return;
 	});
+
+	tap.test("convertLDSDate", (t: test): void => {
+		let initial: string = "19901114";
+		let expected: Date = new Date("11/14/1990");
+		let observed: Date | null = TRRecord.convertLDSDate(initial);
+
+		t.notEqual(observed, null, "date should not be null");
+		if(observed == null) return;
+
+		t.equal(observed, expected, "dates should match");
+	});
 }

@@ -8,6 +8,6 @@
 
 function LDSApiTest(tap: GasTap): void {
 	tap.test("getMemberData", (t: test): void => {
-		let members: LDSMember[] = LDSApi.getMemberData();
+		let members: LDSTRRecord[] = LDSApi.getRecordData();
 	});
 }
