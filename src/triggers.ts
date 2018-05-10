@@ -17,8 +17,8 @@ function updateMemberList(): void {
 	}
 
 	// 2. Update current member information if available, add new member, and remove old members
-	//MemberManager.updateMembers(LDSMemberData);
-	//let members: Member[] = MemberManager.getMembers();
+	RecordManager.updateRecords(LDSRecordData);
+	//let records: TRRecord[] = RecordManager.getMembers();
 
 	// 3. Write it out
 	//MemberManager.writeMembers();
