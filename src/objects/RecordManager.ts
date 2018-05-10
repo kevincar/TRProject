@@ -40,10 +40,10 @@ namespace RecordManager {
 			});
 		});
 
-		//// 2. Add new unrecognized members
-		//LDMemberData.forEach((ldsMember: LDSMember, i) => {
-			//if(!members) throw "Members were not loaded appropriately";
-			//// Use the current ldsMember to look up the corresponding member in our records
+		// 2. Add new unrecognized members
+		LDSRecordData.forEach((ldsRecord: LDSTRRecord, index: number): void => {
+			if(records == null) throw "Records were not loaded appropriately";
+			// Use the current ldsRecord to look up the corresponding member in our records
 			//let member: Member | undefined = members.reduce((result: Member | undefined, curMember: Member, i, a) => {
 				//if(ldsMember.name == curMember.name) result = curMember;
 				//return result;
@@ -57,7 +57,7 @@ namespace RecordManager {
 			//member.loadLDSData(ldsMember);
 
 			//members.push(member);
-		//});
+		});
 
 		//// 3. Remove old members
 		//members.forEach((member: Member, memberIndex: number) => {
