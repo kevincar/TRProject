@@ -1,6 +1,6 @@
 
 interface LDSTRRecord {
-	gender: gender;
+	gender: Gender;
 	priesthood: string;
 	unitNumber: number;
 	isHead: boolean;
@@ -31,7 +31,7 @@ interface LDSTRRecord {
 	genderCode: number;
 	phone: string;
 	actualAgeInMonths: number;
-	genderLabelShort: string;
+	genderLabelShort: GenderShort;
 	name: string;
 	householdEmail: string;
 	priesthoodCode: number;
@@ -39,13 +39,19 @@ interface LDSTRRecord {
 	marriageDate: string | null;
 	endowmentDate: string | null;
 	expirationDate: string | null;
-	status: string | null;
+	status: RecommendStatus | null;
 	recommendStatus: string | null;
-	type: RECOMMEND_TYPE | null;
+	type: RecommendType | null;
 	unordained: boolean;
 	notBaptized: boolean;
 	recommendStatusSimple: string | null;
 	recommendEditable: boolean;
 }
 
-type gender = "MALE" | "FEMALE";
+type Gender = "MALE" | "FEMALE";
+
+type GenderShort = "M" | "F";
+
+type RecommendType = "REGULAR";
+
+type RecommendStatus = "ACTIVE" | "EXPIRING_NEXT_MONTH" | "EXPIRING_THIS_MONTH" | "EXPIRED_LESS_THAN_1_MONTH" | "EXPIRED_LESS_THAN_3_MONTHS" | "EXPIRED_OVER_3_MONTHS";

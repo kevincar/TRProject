@@ -6,34 +6,14 @@
  * Instances of this class represent a single record for a member's temple recommend
  */
 
-enum GENDER {
-	M = "M",
-	F = "F"
-}
-
-enum RECOMMEND_TYPE {
-	regular = "REGULAR"
-}
-
-enum STATUS {
-	active = "ACTIVE",
-	expiringNextMonth = "EXPIRING_NEXT_MONTH",
-	expiredThreeMonths = "EXPIRED_OVER_3_MONTHS"
-}
-
 class TRRecord extends SheetObject {
 
-	static readonly GENDER = GENDER;
-	static readonly STATUS = STATUS;
-	static readonly RECOMMEND_TYPE = RECOMMEND_TYPE;
-
 	name: string | null = null;
-	gender: GENDER | null = null;
+	gender: GenderShort | null = null;
 	age: number | null = null;
-	recommendType: RECOMMEND_TYPE | null = null;
-	status: STATUS | null = null;
+	recommendType: RecommendType | null = null;
+	status: RecommendStatus | null = null;
 	expDate: Date | null = null;
-	actions: string | null = null;
 	monthsRemaining: string | null = null;
 	dateMet: Date | null = null;
 	notes: string | null = null;
@@ -54,7 +34,6 @@ class TRRecord extends SheetObject {
 		this.recommendType = data["RECOMMEND TYPE"];
 		this.status = data["STATUS"];
 		this.expDate = SheetObject.convertFromGDate(data["EXPIRATION"]);
-		this.actions = data["ACTIONS"];
 		this.monthsRemaining = data["Expiring In (mo)"];
 		this.dateMet = data["Date Met"];
 		this.notes = data["Notes"];
@@ -74,9 +53,10 @@ class TRRecord extends SheetObject {
 	loadLDSData(data: LDSTRRecord): void {
 		this.name = data.name;
 		this.gender = data.genderLabelShort;
-		//this.age = data.age;
-		//this.recommendType = data.type;
-		//this.status = data.status;
+		this.age = data.age;
+		this.recommendType = data.type;
+		this.status = data.status;
+		this.expDate = TRRecord.convertLDSDate(data.expirationDate);
 	}
 
 	static convertLDSDate(ldsDate: string | null): Date | null {
