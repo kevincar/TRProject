@@ -43,20 +43,20 @@ namespace RecordManager {
 		// 2. Add new unrecognized members
 		LDSRecordData.forEach((ldsRecord: LDSTRRecord, index: number): void => {
 			if(records == null) throw "Records were not loaded appropriately";
-			// Use the current ldsRecord to look up the corresponding member in our records
-			//let member: Member | undefined = members.reduce((result: Member | undefined, curMember: Member, i, a) => {
-				//if(ldsMember.name == curMember.name) result = curMember;
-				//return result;
-			//}, undefined);
+			// Use the current ldsRecord to look up the corresponding record in our records
+			let record: TRRecord | null = records.reduce((result: TRRecord | null, curRecord: TRRecord): TRRecord | null => {
+				if(ldsRecord.name == curRecord.name) result = curRecord;
+				return result;
+			}, null);
 
-			//let isNewMember: boolean = member == undefined;
+			let isNewRecord: boolean = record == null;
 
-			//if(!isNewMember) return;
+			if(!isNewRecord) return;
 
-			//member = new Member(null);
-			//member.loadLDSData(ldsMember);
+			record = new TRRecord(null);
+			record.loadLDSData(ldsRecord);
 
-			//members.push(member);
+			records.push(record);
 		});
 
 		//// 3. Remove old members
