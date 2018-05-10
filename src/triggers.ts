@@ -18,8 +18,8 @@ function updateMemberList(): void {
 
 	// 2. Update current member information if available, add new member, and remove old members
 	RecordManager.updateRecords(LDSRecordData);
-	//let records: TRRecord[] = RecordManager.getMembers();
+	let records: TRRecord[] = RecordManager.getRecords();
 
 	// 3. Write it out
-	//MemberManager.writeMembers();
+	RecordManager.writeRecords();
 }
