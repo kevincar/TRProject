@@ -40,7 +40,7 @@ namespace RecordManager {
 			});
 		});
 
-		// 2. Add new unrecognized members
+		// 2. Add new unrecognized records
 		LDSRecordData.forEach((ldsRecord: LDSTRRecord, index: number): void => {
 			if(records == null) throw "Records were not loaded appropriately";
 			// Use the current ldsRecord to look up the corresponding record in our records
@@ -59,19 +59,19 @@ namespace RecordManager {
 			records.push(record);
 		});
 
-		//// 3. Remove old members
-		//members.forEach((member: Member, memberIndex: number) => {
-			//if(!members) throw "Members were not loaded properly";
-			//let ldsMember: LDSMember | undefined = LDSMemberData.reduce((result: LDSMember | undefined, curMember: LDSMember, i, a) => {
-				//if(curMember.name == member.name) result = curMember;
-				//return result;
-			//}, undefined);
+		// 3. Remove old members
+		records.forEach((record: TRRecord, recordIndex: number): void => {
+			if(records == null) throw "Records were not loaded properly";
+			let ldsRecord: LDSTRRecord | null = LDSRecordData.reduce((result: LDSTRRecord | null, curRecord: LDSTRRecord): LDSTRRecord | null => {
+				if(curRecord.name == record.name) result = curRecord;
+				return result;
+			}, null);
 
-			//let isOldMember: boolean = ldsMember == undefined;
-			//if(isOldMember) {
-				//members.splice(memberIndex, 1);
-			//}
-		//});
+			let isOldMember: boolean = ldsRecord == null;
+			if(isOldMember) {
+				records.splice(recordIndex, 1);
+			}
+		});
 	}
 
 	//export function setMembers(M: Member[]) {
