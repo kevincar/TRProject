@@ -99,11 +99,11 @@ namespace RecordManager {
 		//});
 	//}
 
-	//export function writeMembers() {
+	export function writeRecords() {
 		// 4. Format
-		//if(!members) getMembers();
-		//if(!members) throw "Attempting to write members but getting the members failed";
-		//memberListSheetDict.write(members);
-		//memberListSheet.sort(5, true);
-	//}
+		if(records == null) getRecords();
+		if(records == null) throw "Attempting to write records but getting the records failed";
+		recordListSheetDict.write(records);
+		recordListSheet.sort(5, true);
+	}
 }
