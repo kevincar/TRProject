@@ -27,7 +27,7 @@ function TRRecordTest(tap: GasTap): void {
 		if(testRecord.expDate == null) return;
 
 		t.equal(testRecord.name, testData["NAME"], "Name should match");
-		t.equal(testRecord.gender, TRRecord.GENDER.M, "Gender should map to enumeration");
+		t.equal(testRecord.gender, "M", "Gender should map to type");
 		t.equal(testRecord.expDate.getTime(), (new Date("11/30/2019")).getTime(), "expDates should match");
 		t.equal(testRecord.monthsRemaining, testData["Expiring In (mo)"], "remainingMonths should be a formula");
 		return;
