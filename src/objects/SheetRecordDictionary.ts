@@ -32,8 +32,8 @@ class SheetRecordDictionary extends SheetObjectDictionary<TRRecord> {
 				//}
 			});
 
-			if(this.ctor == null) throw `SheetRecord Dictionary::translate - constructor is null!`;
-			let instance: TRRecord = new this.ctor(data);
+			//if(this.ctor == null) throw `SheetRecord Dictionary::translate - constructor is null!`;
+			let instance: TRRecord = new TRRecord(data);
 			if(!instance.validate(data)) return;
 			records.push(instance);
 		});
