@@ -6,7 +6,7 @@
  * Holds trigger functions
  */
 
-function updateMemberList(): void {
+function updateRecordsList(): void {
 
 	// 1. Get LDS data
 	let LDSRecordData: LDSTRRecord[] = LDSApi.getRecordData();
