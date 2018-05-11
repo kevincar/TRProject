@@ -44,7 +44,15 @@ class TRRecord extends SheetObject {
 	getData(): SheetObjectInterface {
 		return {
 			"NAME": this.name,
-		}
+			"GENDER": this.gender,
+			"AGE": this.age,
+			"RECOMMEND TYPE": this.recommendType,
+			"STATUS": this.status,
+			"EXPIRARION": this.expDate,
+			"Expiring In (mo)": this.monthsRemaining,
+			"Date Met": this.dateMet,
+			"Notes": this.notes
+		};
 	}
 
 	loadSheetData(data: SheetObjectInterface): void {
